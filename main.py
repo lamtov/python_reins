@@ -1,16 +1,6 @@
-import cv2
-import os
 from tkinter import *
 from tkinter import filedialog as fd
-import tkinter as tk
-from os import listdir
-from os.path import isfile, join
 import os
-import cv2
-import numpy as np
-from PIL import ImageTk, ImageFont, ImageDraw, Image
-from threading import Lock
-from concurrent.futures import ThreadPoolExecutor
 import logging
 cur_dir= os.getcwd()
 folder_dataset = cur_dir+ '/dataset/'
@@ -154,14 +144,7 @@ class MyWindow:
 
 
 window = Tk()
-try:
-    imagebg = Image.open(cur_dir + '/dataset/back_ground.jpg')
-    imagebg.resize((1300, 450))
-    photo_image = ImageTk.PhotoImage(imagebg)
-    label = tk.Label(window, image=photo_image)
-    label.pack()
-except Exception as e:
-    logging.debug(str(e))
+
 mywin = MyWindow(window)
 
 window.title('CONVERT IMAGE TO VIDEO')
