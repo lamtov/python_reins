@@ -1,13 +1,9 @@
 ## install chrome for ubuntu
-```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
-```
 ## update chrome-driver for ubuntu
 ```
-sudo apt-get update -y
-sudo apt-get install -y chromium-chromedriver
+bash install_chrome.sh
 ```
+
 ## for window please validate version chrome to 88.0.4324.150 or download new chromedriver
 
 ## setup conda env minimal_example
