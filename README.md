@@ -21,7 +21,7 @@ pip install lxml
 ## run app
 ```
 conda activate minimal_example
-git clone https://github.com/lamtov/python_reins.gitc
+git clone https://github.com/lamtov/python_reins.git
 cd python_reins
 vim dataset/input.txt 
 python main.py
