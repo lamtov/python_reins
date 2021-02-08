@@ -1,6 +1,12 @@
+## update chrome-driver for ubuntu
+```
 sudo apt-get update -y
 sudo apt-get install -y chromium-chromedriver
+```
+## for window please validate version chrome to 88.0.4324.150 or download new chromedriver
 
+## setup conda env minimal_example
+```
 wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 bash Anaconda3-2020.11-Linux-x86_64.sh
 conda create -n minimal_example python=3.7 pyinstaller
@@ -11,9 +17,15 @@ conda install -y -c anaconda pillow
 pip install selenium
 pip install beautifulsoup4
 pip install lxml
-
-git clone 
-vim input.txt 
+```
+## run app
+```
+conda activate minimal_example
+git clone https://github.com/lamtov/python_reins.gitc
+cd python_reins
+vim dataset/input.txt 
 python main.py
+```
+
 
 

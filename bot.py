@@ -11,18 +11,9 @@ from bs4 import BeautifulSoup
 import io, json,os
 import time
 soup = BeautifulSoup("")
+import platform
 
-def init_driver_ubuntu():
-    chrome_options = Options()
-    # chrome_options.add_argument('--headless')
-    # chrome_options.add_argument('--no-sandbox')
-    # chrome_options.add_argument('--disable-dev-shm-usage')
-
-    driver = webdriver.Chrome(chrome_options=chrome_options)
-    return driver
-
-
-def init_driver():
+def init_driver_window():
     chrome_options = Options()
 
     # chrome_options.add_argument("ignore-certificate-errors")
@@ -33,8 +24,25 @@ def init_driver():
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("user-data-dir=selenium")
     chrome_options.add_argument("--window-size=1920x1080")
-    driver = webdriver.Chrome(chrome_options=chrome_options,
-                              executable_path="C:/Users/Lam/Documents/Selenium/chromedriver_win32/chromedriver.exe")
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    return driver
+
+def init_driver():
+    chrome_options = Options()
+    # chrome_options.add_argument("ignore-certificate-errors")
+    # chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--no-sandbox')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
+    # chrome_options.add_argument("--incognito")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("user-data-dir=selenium")
+    chrome_options.add_argument("--window-size=1920x1080")
+    if 'ubuntu' in platform.platform().lower():
+        driver = webdriver.Chrome(chrome_options=chrome_options)
+    else:
+        cur_dir = os.getcwd()
+        driver = webdriver.Chrome(chrome_options=chrome_options,
+                                  executable_path=cur_dir+ "/window_driver"+"/chromedriver.exe")
     return driver
 
 
@@ -181,7 +189,7 @@ class Bot():
         try:
             self.browser.get(self.link_search)
             try:
-                btnSearch = WebDriverWait(self.browser, 15).until(ec.visibility_of_element_located((By.CSS_SELECTOR, ''' div.col-sm-3.col-4:nth-child(4) > button.btn.p-button.btn-primary.btn-block.px-0''')))
+                btnSearch = WebDriverWait(self.browser, 10).until(ec.visibility_of_element_located((By.CSS_SELECTOR, ''' div.col-sm-3.col-4:nth-child(4) > button.btn.p-button.btn-primary.btn-block.px-0''')))
                 return True
             except:
                 print("not OK")

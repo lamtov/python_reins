@@ -126,7 +126,7 @@ class MyWindow:
                     if not os.path.exists(self.folder_output+'/'+search_text):
                         os.makedirs(self.folder_output+'/'+search_text)
                     self.bot.run_to_page_file(search_text)
-            messagebox.showinfo(title="DONE", message="DONE ALL!")
+                messagebox.showinfo(title="DONE", message="DONE ALL!")
 
         except Exception as e:
             logging.debug(str(e))
