@@ -37,7 +37,8 @@ def init_driver():
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("user-data-dir=selenium")
     chrome_options.add_argument("--window-size=1920x1080")
-    if 'ubuntu' in platform.platform().lower():
+    if 'ubuntu' in platform.platform().lower() or 'linux' in platform.platform().lower():
+        print('using ubuntu or linux')
         driver = webdriver.Chrome(chrome_options=chrome_options)
     else:
         cur_dir = os.getcwd()
@@ -62,6 +63,7 @@ class Bot():
             self.link_search = link_search
             self.output_folder= output_folder
         except Exception as e:
+            print(e)
             self.status = str(traceback.format_exc())
 
     def login(self):
