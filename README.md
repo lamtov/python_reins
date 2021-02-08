@@ -3,6 +3,11 @@
 ```
 bash install_chrome.sh
 ```
+## setup Japan font for ubuntu
+```
+sudo apt-get install language-pack-ja
+sudo apt-get install japan*
+```
 
 ## for window please validate version chrome to 88.0.4324.150 or download new chromedriver
 
@@ -28,5 +33,7 @@ vim dataset/input.txt
 python main.py
 ```
 
-
-
+```
+pyinstaller --onefile  -F C:/Users/Lam/Documents/TOVANLAM_MMO/python_reins/main.py -p C:/Users/Lam/.conda/envs/minimal_example/python.exe
+for window only
+```
