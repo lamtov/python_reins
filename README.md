@@ -23,6 +23,9 @@ conda install -y -c anaconda pillow
 pip install selenium
 pip install beautifulsoup4
 pip install lxml
+conda install -c anaconda pandas
+conda install -c anaconda requests
+
 ```
 ## run app
 ```
